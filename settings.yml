@@ -1,0 +1,51 @@
+#User defined
+user:
+  nodejs_version:
+    label:
+      Nodejs Version
+    hint:
+      Select a nodejs version
+    type:
+      select
+    values:
+      - "10"
+      - "12"
+      - "13"
+      - "14"
+    target:
+      NODEJS_VERSION
+
+  # run_cron:
+  #   label:
+  #     Run cron jobs?
+  #   type:
+  #     checkbox
+  #   hint:
+  #     Check to enable cron jobs
+  #   target:
+  #     MAUTIC_RUN_CRON
+  # mysql_version:
+  #   label:
+  #     MySQL version
+  #   hint:
+  #     Select MySQL version
+  #   type:
+  #     select
+  #   values:
+  #     - "5.0"
+  #     - "7.0"
+  #   target:
+  #     MYSQL_VERSION
+
+#System defaults
+system:
+  show_localpath_selector:
+    true
+  #For collecting and storing DB in .env
+  #db/user/password
+  # db_credentials:
+  #   true
+  #Generate public ports for the docker image
+  ports:
+    http: NODEJS_HTTP_PORT
+    others:
