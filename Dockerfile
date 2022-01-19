@@ -7,7 +7,6 @@ EXPOSE 3000
 
 FROM base as production
 ENV NODE_ENV=production
-RUN npm ci
 COPY install.sh /usr/local/bin/install.sh
 RUN chmod +x /usr/local/bin/install.sh
 ENTRYPOINT [ "install.sh" ]
