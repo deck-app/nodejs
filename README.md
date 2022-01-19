@@ -9,7 +9,7 @@
     Install Nodejs from the DECK marketplace and follow the instructions on the GUI
   ### From terminal with Docker
     The quickest way to get started with the Nodejs Development Container is using docker-compose.
-    Download the ``docker-compose.yml`` file in the application directory:
+    Download the ```docker-compose.yml``` file in the application directory:
       ```
       $ git clone https://github.com/deck-app/nodejs.git
       $ cd nodejs
