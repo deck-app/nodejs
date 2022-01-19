@@ -32,7 +32,6 @@ jobs:
           NODEJS_VERSION: "14"
 
       - name: Build the image with nodejs 16
-        platform: linux/amd64,linux/arm64
         run: docker-compose build
         env:
           NODEJS_VERSION: "16"
