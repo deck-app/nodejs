@@ -1,0 +1,27 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ v4 ]
+  pull_request:
+    branches: [ v4 ]
+
+jobs:
+  Laravel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the image with nodejs 10
+        run: docker buildx build --platform linux/amd64,linux/arm64,linux/ppc64le,linux/s390x --build-arg NODEJS_VERSION=10 --tag ghcr.io/deck-app/nodejs:v10 .
+
+      - name: Build the image with nodejs 12
+        run: docker buildx build --platform linux/amd64,linux/arm64,linux/ppc64le,linux/s390x --build-arg NODEJS_VERSION=12 --tag ghcr.io/deck-app/nodejs:v12 .
+
+      - name: Build the image with nodejs 13
+        run: docker buildx build --platform linux/amd64,linux/arm64,linux/ppc64le,linux/s390x --build-arg NODEJS_VERSION=13 --tag ghcr.io/deck-app/nodejs:v13 .
+
+     - name: Build the image with nodejs 14
+        run: docker buildx build --platform linux/amd64,linux/arm64,linux/ppc64le,linux/s390x --build-arg NODEJS_VERSION=14 --tag ghcr.io/deck-app/nodejs:v14 .
+
+      - name: Build the image with nodejs 16
+        run: docker buildx build --platform linux/amd64,linux/arm64,linux/ppc64le,linux/s390x --build-arg NODEJS_VERSION=16 --tag ghcr.io/deck-app/nodejs:v16 .
