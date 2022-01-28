@@ -12,6 +12,7 @@ user:
       - "12"
       - "13"
       - "14"
+      - "16"
     target:
       NODEJS_VERSION
 

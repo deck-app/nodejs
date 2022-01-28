@@ -1,0 +1,40 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ v4 ]
+  pull_request:
+    branches: [ v4 ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image Nodejs 10
+      run: docker-compose build
+      env:
+        NODEJS_VERSION: 10
+    
+    - name: Build the Docker image Nodejs 12
+      run: docker-compose build
+      env:
+        NODEJS_VERSION: 12
+
+    - name: Build the Docker image Nodejs 13
+      run: docker-compose build
+      env:
+        NODEJS_VERSION: 13
+    
+    - name: Build the Docker image Nodejs 14
+      run: docker-compose build
+      env:
+        NODEJS_VERSION: 14
+    
+    - name: Build the Docker image Nodejs 16
+      run: docker-compose build
+      env:
+        NODEJS_VERSION: 16
