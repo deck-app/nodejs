@@ -25,7 +25,7 @@ jobs:
     - name: Web site checking
       run:  |
         sleep 30s
-        sudo curl -I --http2 http://localhost:3000/ 
+        curl -i http://localhost:3000/ 
     - name: Destroy container and file
       run:  |
         docker-compose down
@@ -71,7 +71,7 @@ jobs:
     - name: API checking
       run:  |
         sleep 30s
-        sudo curl -I --http2 http://localhost:3000/
+        curl -i http://localhost:3000/
     - name: Destroy container and file
       run:  |
         docker-compose down
@@ -117,7 +117,7 @@ jobs:
     - name: API checking
       run:  |
         sleep 30s
-        sudo curl -I --http2 http://localhost:3000/
+        curl -i http://localhost:3000/
     - name: Destroy container and file
       run:  |
         docker-compose down
@@ -163,7 +163,7 @@ jobs:
     - name: API checking
       run:  |
         sleep 30s
-        sudo curl -I --http2 http://localhost:3000/
+        curl -i http://localhost:3000/
     - name: Destroy container and file
       run:  |
         docker-compose down
@@ -209,7 +209,7 @@ jobs:
     - name: API checking
       run:  |
         sleep 30s
-        sudo curl -I --http2 http://localhost:3000/
+        curl -i http://localhost:3000/
     - name: Destroy container and file
       run:  |
         docker-compose down
