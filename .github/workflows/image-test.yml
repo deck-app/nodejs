@@ -22,7 +22,7 @@ jobs:
       run:  |
         docker exec nodejs_nodejs_1 node -v
         docker exec nodejs_nodejs_1 npm -v
-    - name: API checking
+    - name: Web site checking
       run:  |
         sleep 30s
         sudo curl -I --http2 http://localhost:3000/ 
@@ -31,210 +31,210 @@ jobs:
         docker-compose down
         sudo rm -rf /tmp/app/
         echo "y" | docker image prune -a
-  # Mock-API-Node10-ARM64:
-  #   runs-on: self-hosted
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: Build the Docker image Nodejs 10
-  #     run: docker-compose -f "docker-compose.yml" up -d --build
-  #     env:
-  #       NODEJS_VERSION: 10
-  #       APP_CODE_PATH_HOST: /tmp/app/
-  #   - name: Node and NPM version check
-  #     run:  |
-  #       docker exec nodejs_nodejs_1 node -v
-  #       docker exec nodejs_nodejs_1 npm -v
-  #   - name: API checking
-  #     run:  |
-  #       sleep 30s
-  #       curl -i http://localhost:3000/
-  #   - name: Destroy container and file
-  #     run:  |
-  #       docker-compose down
-  #       echo "password" | sudo -S whoami
-  #       sudo rm -rf /tmp/app/
-  #       echo "y" | docker image prune -a
+  Mock-API-Node10-ARM64:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image Nodejs 10
+      run: docker-compose -f "docker-compose.yml" up -d --build
+      env:
+        NODEJS_VERSION: 10
+        APP_CODE_PATH_HOST: /tmp/app/
+    - name: Node and NPM version check
+      run:  |
+        docker exec nodejs_nodejs_1 node -v
+        docker exec nodejs_nodejs_1 npm -v
+    - name: API checking
+      run:  |
+        sleep 30s
+        curl -i http://localhost:3000/
+    - name: Destroy container and file
+      run:  |
+        docker-compose down
+        echo "password" | sudo -S whoami
+        sudo rm -rf /tmp/app/
+        echo "y" | docker image prune -a
 
-  # Mock-API-Node12-AMD64:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: Build the Docker image Nodejs 12
-  #     run: docker-compose -f "docker-compose.yml" up -d --build
-  #     env:
-  #       NODEJS_VERSION: 12
-  #       APP_CODE_PATH_HOST: /tmp/app/
-  #   - name: Node and NPM version check
-  #     run:  |
-  #       docker exec nodejs_nodejs_1 node -v
-  #       docker exec nodejs_nodejs_1 npm -v
-  #   - name: API checking
-  #     run:  |
-  #       sleep 30s
-  #       sudo curl -I --http2 http://localhost:3000/
-  #   - name: Destroy container and file
-  #     run:  |
-  #       docker-compose down
-  #       sudo rm -rf /tmp/app/
-  #       echo "y" | docker image prune -a
-  # Mock-API-Node12-ARM64:
-  #   runs-on: self-hosted
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: Build the Docker image Nodejs 12
-  #     run: docker-compose -f "docker-compose.yml" up -d --build
-  #     env:
-  #       NODEJS_VERSION: 12
-  #       APP_CODE_PATH_HOST: /tmp/app/
-  #   - name: Node and NPM version check
-  #     run:  |
-  #       docker exec nodejs_nodejs_1 node -v
-  #       docker exec nodejs_nodejs_1 npm -v
-  #   - name: API checking
-  #     run:  |
-  #       sleep 30s
-  #       curl -i http://localhost:3000/
-  #   - name: Destroy container and file
-  #     run:  |
-  #       docker-compose down
-  #       echo "password" | sudo -S whoami
-  #       sudo rm -rf /tmp/app/
-  #       echo "y" | docker image prune -a
+  Mock-API-Node12-AMD64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image Nodejs 12
+      run: docker-compose -f "docker-compose.yml" up -d --build
+      env:
+        NODEJS_VERSION: 12
+        APP_CODE_PATH_HOST: /tmp/app/
+    - name: Node and NPM version check
+      run:  |
+        docker exec nodejs_nodejs_1 node -v
+        docker exec nodejs_nodejs_1 npm -v
+    - name: API checking
+      run:  |
+        sleep 30s
+        sudo curl -I --http2 http://localhost:3000/
+    - name: Destroy container and file
+      run:  |
+        docker-compose down
+        sudo rm -rf /tmp/app/
+        echo "y" | docker image prune -a
+  Mock-API-Node12-ARM64:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image Nodejs 12
+      run: docker-compose -f "docker-compose.yml" up -d --build
+      env:
+        NODEJS_VERSION: 12
+        APP_CODE_PATH_HOST: /tmp/app/
+    - name: Node and NPM version check
+      run:  |
+        docker exec nodejs_nodejs_1 node -v
+        docker exec nodejs_nodejs_1 npm -v
+    - name: API checking
+      run:  |
+        sleep 30s
+        curl -i http://localhost:3000/
+    - name: Destroy container and file
+      run:  |
+        docker-compose down
+        echo "password" | sudo -S whoami
+        sudo rm -rf /tmp/app/
+        echo "y" | docker image prune -a
 
-  # Mock-API-Node13-AMD64:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: Build the Docker image Nodejs 13
-  #     run: docker-compose -f "docker-compose.yml" up -d --build
-  #     env:
-  #       NODEJS_VERSION: 13
-  #       APP_CODE_PATH_HOST: /tmp/app/
-  #   - name: Node and NPM version check
-  #     run:  |
-  #       docker exec nodejs_nodejs_1 node -v
-  #       docker exec nodejs_nodejs_1 npm -v
-  #   - name: API checking
-  #     run:  |
-  #       sleep 30s
-  #       sudo curl -I --http2 http://localhost:3000/
-  #   - name: Destroy container and file
-  #     run:  |
-  #       docker-compose down
-  #       sudo rm -rf /tmp/app/
-  #       echo "y" | docker image prune -a
-  # Mock-API-Node13-ARM64:
-  #   runs-on: self-hosted
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: Build the Docker image Nodejs 13
-  #     run: docker-compose -f "docker-compose.yml" up -d --build
-  #     env:
-  #       NODEJS_VERSION: 13
-  #       APP_CODE_PATH_HOST: /tmp/app/
-  #   - name: Node and NPM version check
-  #     run:  |
-  #       docker exec nodejs_nodejs_1 node -v
-  #       docker exec nodejs_nodejs_1 npm -v
-  #   - name: API checking
-  #     run:  |
-  #       sleep 30s
-  #       curl -i http://localhost:3000/
-  #   - name: Destroy container and file
-  #     run:  |
-  #       docker-compose down
-  #       echo "password" | sudo -S whoami
-  #       sudo rm -rf /tmp/app/
-  #       echo "y" | docker image prune -a
+  Mock-API-Node13-AMD64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image Nodejs 13
+      run: docker-compose -f "docker-compose.yml" up -d --build
+      env:
+        NODEJS_VERSION: 13
+        APP_CODE_PATH_HOST: /tmp/app/
+    - name: Node and NPM version check
+      run:  |
+        docker exec nodejs_nodejs_1 node -v
+        docker exec nodejs_nodejs_1 npm -v
+    - name: API checking
+      run:  |
+        sleep 30s
+        sudo curl -I --http2 http://localhost:3000/
+    - name: Destroy container and file
+      run:  |
+        docker-compose down
+        sudo rm -rf /tmp/app/
+        echo "y" | docker image prune -a
+  Mock-API-Node13-ARM64:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image Nodejs 13
+      run: docker-compose -f "docker-compose.yml" up -d --build
+      env:
+        NODEJS_VERSION: 13
+        APP_CODE_PATH_HOST: /tmp/app/
+    - name: Node and NPM version check
+      run:  |
+        docker exec nodejs_nodejs_1 node -v
+        docker exec nodejs_nodejs_1 npm -v
+    - name: API checking
+      run:  |
+        sleep 30s
+        curl -i http://localhost:3000/
+    - name: Destroy container and file
+      run:  |
+        docker-compose down
+        echo "password" | sudo -S whoami
+        sudo rm -rf /tmp/app/
+        echo "y" | docker image prune -a
 
-  # Mock-API-Node14-AMD64:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v2  
-  #   - name: Build the Docker image Nodejs 14
-  #     run: docker-compose -f "docker-compose.yml" up -d --build
-  #     env:
-  #       NODEJS_VERSION: 14
-  #       APP_CODE_PATH_HOST: /tmp/app/
-  #   - name: Node and NPM version check
-  #     run:  |
-  #       docker exec nodejs_nodejs_1 node -v
-  #       docker exec nodejs_nodejs_1 npm -v
-  #   - name: API checking
-  #     run:  |
-  #       sleep 30s
-  #       sudo curl -I --http2 http://localhost:3000/
-  #   - name: Destroy container and file
-  #     run:  |
-  #       docker-compose down
-  #       sudo rm -rf /tmp/app/
-  #       echo "y" | docker image prune -a
-  # Mock-API-Node14-ARM64:
-  #   runs-on: self-hosted
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: Build the Docker image Nodejs 14
-  #     run: docker-compose -f "docker-compose.yml" up -d --build
-  #     env:
-  #       NODEJS_VERSION: 14
-  #       APP_CODE_PATH_HOST: /tmp/app/
-  #   - name: Node and NPM version check
-  #     run:  |
-  #       docker exec nodejs_nodejs_1 node -v
-  #       docker exec nodejs_nodejs_1 npm -v
-  #   - name: API checking
-  #     run:  |
-  #       sleep 30s
-  #       curl -i http://localhost:3000/
-  #   - name: Destroy container and file
-  #     run:  |
-  #       docker-compose down
-  #       echo "password" | sudo -S whoami
-  #       sudo rm -rf /tmp/app/
-  #       echo "y" | docker image prune -a
+  Mock-API-Node14-AMD64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2  
+    - name: Build the Docker image Nodejs 14
+      run: docker-compose -f "docker-compose.yml" up -d --build
+      env:
+        NODEJS_VERSION: 14
+        APP_CODE_PATH_HOST: /tmp/app/
+    - name: Node and NPM version check
+      run:  |
+        docker exec nodejs_nodejs_1 node -v
+        docker exec nodejs_nodejs_1 npm -v
+    - name: API checking
+      run:  |
+        sleep 30s
+        sudo curl -I --http2 http://localhost:3000/
+    - name: Destroy container and file
+      run:  |
+        docker-compose down
+        sudo rm -rf /tmp/app/
+        echo "y" | docker image prune -a
+  Mock-API-Node14-ARM64:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image Nodejs 14
+      run: docker-compose -f "docker-compose.yml" up -d --build
+      env:
+        NODEJS_VERSION: 14
+        APP_CODE_PATH_HOST: /tmp/app/
+    - name: Node and NPM version check
+      run:  |
+        docker exec nodejs_nodejs_1 node -v
+        docker exec nodejs_nodejs_1 npm -v
+    - name: API checking
+      run:  |
+        sleep 30s
+        curl -i http://localhost:3000/
+    - name: Destroy container and file
+      run:  |
+        docker-compose down
+        echo "password" | sudo -S whoami
+        sudo rm -rf /tmp/app/
+        echo "y" | docker image prune -a
 
-  # Mock-API-Node16-AMD64:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: Build the Docker image Nodejs 16
-  #     run: docker-compose -f "docker-compose.yml" up -d --build
-  #     env:
-  #       NODEJS_VERSION: 16
-  #       APP_CODE_PATH_HOST: /tmp/app/
-  #   - name: Node and NPM version check
-  #     run:  |
-  #       docker exec nodejs_nodejs_1 node -v
-  #       docker exec nodejs_nodejs_1 npm -v
-  #   - name: API checking
-  #     run:  |
-  #       sleep 30s
-  #       sudo curl -I --http2 http://localhost:3000/
-  #   - name: Destroy container and file
-  #     run:  |
-  #       docker-compose down
-  #       sudo rm -rf /tmp/app/
-  #       echo "y" | docker image prune -a
-  # Mock-API-Node16-ARM64:
-  #   runs-on: self-hosted
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: Build the Docker image Nodejs 16
-  #     run: docker-compose -f "docker-compose.yml" up -d --build
-  #     env:
-  #       NODEJS_VERSION: 16
-  #       APP_CODE_PATH_HOST: /tmp/app/
-  #   - name: Node and NPM version check
-  #     run:  |
-  #       docker exec nodejs_nodejs_1 node -v
-  #       docker exec nodejs_nodejs_1 npm -v
-  #   - name: API checking
-  #     run:  |
-  #       sleep 30s
-  #       curl -i http://localhost:3000/
-  #   - name: Destroy container and file
-  #     run:  |
-  #       docker-compose down
-  #       echo "password" | sudo -S whoami
-  #       sudo rm -rf /tmp/app/
-  #       echo "y" | docker image prune -a
+  Mock-API-Node16-AMD64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image Nodejs 16
+      run: docker-compose -f "docker-compose.yml" up -d --build
+      env:
+        NODEJS_VERSION: 16
+        APP_CODE_PATH_HOST: /tmp/app/
+    - name: Node and NPM version check
+      run:  |
+        docker exec nodejs_nodejs_1 node -v
+        docker exec nodejs_nodejs_1 npm -v
+    - name: API checking
+      run:  |
+        sleep 30s
+        sudo curl -I --http2 http://localhost:3000/
+    - name: Destroy container and file
+      run:  |
+        docker-compose down
+        sudo rm -rf /tmp/app/
+        echo "y" | docker image prune -a
+  Mock-API-Node16-ARM64:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image Nodejs 16
+      run: docker-compose -f "docker-compose.yml" up -d --build
+      env:
+        NODEJS_VERSION: 16
+        APP_CODE_PATH_HOST: /tmp/app/
+    - name: Node and NPM version check
+      run:  |
+        docker exec nodejs_nodejs_1 node -v
+        docker exec nodejs_nodejs_1 npm -v
+    - name: API checking
+      run:  |
+        sleep 30s
+        curl -i http://localhost:3000/
+    - name: Destroy container and file
+      run:  |
+        docker-compose down
+        echo "password" | sudo -S whoami
+        sudo rm -rf /tmp/app/
+        echo "y" | docker image prune -a
