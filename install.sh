@@ -17,7 +17,9 @@ if [[ "$(ls -A "/src/")" ]] ;
     then
         echo "Directory is not Empty, Please deleted hiden file and directory"
     else
-        git clone https://github.com/nabad600/node.git .
+        cd /src/
+        tar cf - --one-file-system -C /distribution . | tar xf -
         npm install -g nodemon && npm install
+        rm -rf /distribution
 fi
 exec "$@"

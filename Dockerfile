@@ -2,9 +2,9 @@ ARG NODEJS_VERSION
 FROM node:${NODEJS_VERSION}-alpine as base
 
 WORKDIR /src
-RUN apk add git nano bash
+RUN apk add git nano bash tar
 EXPOSE 3000
-
+COPY distribution/ /distribution/
 FROM base as production
 ENV NODE_ENV=production
 COPY install.sh /usr/local/bin/install.sh
