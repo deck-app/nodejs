@@ -80,7 +80,6 @@ jobs:
   #       sudo rm -rf /tmp/app/
   #       done
 
-
   # NODEJS-Node12-AMD64:
   #   runs-on: ubuntu-latest
   #   steps:
