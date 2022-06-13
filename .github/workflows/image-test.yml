@@ -42,7 +42,9 @@ jobs:
         curl -i http://localhost:3000/ 
     - name: Destroy container and file
       run:  |
+        docker stop mariadb
         docker-compose down
+        docker stop $(docker ps -a -q)
         echo "y" | docker image prune -a
         echo "y" | docker volume prune
         sudo rm -rf /tmp/app/
