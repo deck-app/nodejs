@@ -27,7 +27,7 @@ jobs:
     - name: Download and install the "mysql" module
       run: docker exec nodejs_nodejs_1 npm install mysql
     - name: Download Database information preconfigure js file
-      run: docker exec nodejs_nodejs_1 wget -O /src/ https://raw.githubusercontent.com/nabad600/image-test-file/main/demo_db_connection.js
+      run: docker exec nodejs_nodejs_1 wget -O /src/demo_db_connection.js https://raw.githubusercontent.com/nabad600/image-test-file/main/demo_db_connection.js
     - name: Run "demo_db_connection.js"
       run: docker exec nodejs_nodejs_1 node /src/demo_db_connection.js
     - name: Web site checking
