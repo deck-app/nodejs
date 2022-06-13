@@ -54,7 +54,6 @@ jobs:
         done
     - name: Web site checking
       run:  |
-        sleep 30s
         curl -i http://localhost:3000/ 
     - name: Destroy container and file
       run:  |
@@ -118,7 +117,6 @@ jobs:
         done
     - name: API checking
       run:  |
-        sleep 30s
         curl -i http://localhost:3000/
     - name: Destroy container and file
       run:  |
@@ -175,7 +173,6 @@ jobs:
         done
     - name: Web site checking
       run:  |
-        sleep 30s
         curl -i http://localhost:3000/ 
     - name: Destroy container and file
       run:  |
@@ -239,7 +236,6 @@ jobs:
         done
     - name: API checking
       run:  |
-        sleep 30s
         curl -i http://localhost:3000/
     - name: Destroy container and file
       run:  |
@@ -296,7 +292,6 @@ jobs:
         done
     - name: Web site checking
       run:  |
-        sleep 30s
         curl -i http://localhost:3000/ 
     - name: Destroy container and file
       run:  |
@@ -360,7 +355,6 @@ jobs:
         done
     - name: API checking
       run:  |
-        sleep 30s
         curl -i http://localhost:3000/
     - name: Destroy container and file
       run:  |
@@ -418,7 +412,6 @@ jobs:
         done
     - name: Web site checking
       run:  |
-        sleep 30s
         curl -i http://localhost:3000/ 
     - name: Destroy container and file
       run:  |
@@ -482,7 +475,6 @@ jobs:
         done
     - name: API checking
       run:  |
-        sleep 30s
         curl -i http://localhost:3000/
     - name: Destroy container and file
       run:  |
@@ -541,7 +533,6 @@ jobs:
         done
     - name: Web site checking
       run:  |
-        sleep 30s
         curl -i http://localhost:3000/ 
     - name: Destroy container and file
       run:  |
@@ -605,7 +596,6 @@ jobs:
         done
     - name: API checking
       run:  |
-        sleep 30s
         curl -i http://localhost:3000/
     - name: Destroy container and file
       run:  |
@@ -616,243 +606,3 @@ jobs:
         echo "y" | docker image prune -a
         echo "y" | docker volume prune
         sudo rm -rf /tmp/app/
-
-  # NODEJS-Node12-AMD64:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: Build the Docker image Nodejs 12
-  #     run: docker-compose -f "docker-compose.yml" up -d --build
-  #     env:
-  #       NODEJS_VERSION: 12
-  #       APP_CODE_PATH_HOST: /tmp/app/
-  #   - name: Build the Docker image mariadb
-  #     run: docker run --detach --name mariadb --network=laravel_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
-  #   - name: Node and NPM version check
-  #     run:  |
-  #       docker exec nodejs_nodejs_1 node -v
-  #       docker exec nodejs_nodejs_1 npm -v
-  #   - name: API checking
-  #     run:  |
-  #       sleep 30s
-  #       curl -i http://localhost:3000/
-  #   - name: Destroy container and file
-  #     run:  |
-  #       docker-compose down
-  #       sudo rm -rf /tmp/app/
-  #       echo "y" | docker image prune -a
-  # NODEJS-Node12-ARM64:
-  #   runs-on: self-hosted
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name : Folder check list
-  #     run:  |
-  #       while [ -d /tmp/app ]; do
-  #       echo "password" | sudo -S whoami
-  #       sudo rm -rf /tmp/app/
-  #       done
-  #   - name: Build the Docker image Nodejs 12
-  #     run: docker-compose -f "docker-compose.yml" up -d --build
-  #     env:
-  #       NODEJS_VERSION: 12
-  #       APP_CODE_PATH_HOST: /tmp/app/
-  #   - name: Build the Docker image mariadb
-  #     run: docker run --detach --name mariadb --network=laravel_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
-  #   - name: Node and NPM version check
-  #     run:  |
-  #       docker exec nodejs-nodejs-1 node -v
-  #       docker exec nodejs-nodejs-1 npm -v
-  #   - name: API checking
-  #     run:  |
-  #       sleep 30s
-  #       curl -i http://localhost:3000/
-  #   - name: Destroy container and file
-  #     run:  |
-  #       docker-compose down
-  #       echo "y" | docker system prune -a
-  #       while [ -d /tmp/app ]; do
-  #       echo "password" | sudo -S whoami
-  #       sudo rm -rf /tmp/app/
-  #       done
-
-  # NODEJS-Node13-AMD64:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: Build the Docker image Nodejs 13
-  #     run: docker-compose -f "docker-compose.yml" up -d --build
-  #     env:
-  #       NODEJS_VERSION: 13
-  #       APP_CODE_PATH_HOST: /tmp/app/
-  #   - name: Build the Docker image mariadb
-  #     run: docker run --detach --name mariadb --network=laravel_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
-  #   - name: Node and NPM version check
-  #     run:  |
-  #       docker exec nodejs_nodejs_1 node -v
-  #       docker exec nodejs_nodejs_1 npm -v
-  #   - name: API checking
-  #     run:  |
-  #       sleep 30s
-  #       curl -i http://localhost:3000/
-  #   - name: Destroy container and file
-  #     run:  |
-  #       docker-compose down
-  #       sudo rm -rf /tmp/app/
-  #       echo "y" | docker image prune -a
-  # NODEJS-Node13-ARM64:
-  #   runs-on: self-hosted
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name : Folder check list
-  #     run:  |
-  #       while [ -d /tmp/app ]; do
-  #       echo "password" | sudo -S whoami
-  #       sudo rm -rf /tmp/app/
-  #       done
-  #   - name: Build the Docker image Nodejs 13
-  #     run: docker-compose -f "docker-compose.yml" up -d --build
-  #     env:
-  #       NODEJS_VERSION: 13
-  #       APP_CODE_PATH_HOST: /tmp/app/
-  #   - name: Build the Docker image mariadb
-  #     run: docker run --detach --name mariadb --network=laravel_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
-  #   - name: Node and NPM version check
-  #     run:  |
-  #       docker exec nodejs-nodejs-1 node -v
-  #       docker exec nodejs-nodejs-1 npm -v
-  #   - name: API checking
-  #     run:  |
-  #       sleep 30s
-  #       curl -i http://localhost:3000/
-  #   - name: Destroy container and file
-  #     run:  |
-  #       docker-compose down
-  #       echo "y" | docker system prune -a
-  #       while [ -d /tmp/app ]; do
-  #       echo "password" | sudo -S whoami
-  #       sudo rm -rf /tmp/app/
-  #       done
-
-
-  # NODEJS-Node14-AMD64:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v2  
-  #   - name: Build the Docker image Nodejs 14
-  #     run: docker-compose -f "docker-compose.yml" up -d --build
-  #     env:
-  #       NODEJS_VERSION: 14
-  #       APP_CODE_PATH_HOST: /tmp/app/
-  #   - name: Build the Docker image mariadb
-  #     run: docker run --detach --name mariadb --network=laravel_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
-  #   - name: Node and NPM version check
-  #     run:  |
-  #       docker exec nodejs_nodejs_1 node -v
-  #       docker exec nodejs_nodejs_1 npm -v
-  #   - name: API checking
-  #     run:  |
-  #       sleep 30s
-  #       curl -i http://localhost:3000/
-  #   - name: Destroy container and file
-  #     run:  |
-  #       docker-compose down
-  #       sudo rm -rf /tmp/app/
-  #       echo "y" | docker image prune -a
-  # NODEJS-Node14-ARM64:
-  #   runs-on: self-hosted
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name : Folder check list
-  #     run:  |
-  #       while [ -d /tmp/app ]; do
-  #       echo "password" | sudo -S whoami
-  #       sudo rm -rf /tmp/app/
-  #       done
-  #   - name: Build the Docker image Nodejs 14
-  #     run: docker-compose -f "docker-compose.yml" up -d --build
-  #     env:
-  #       NODEJS_VERSION: 14
-  #       APP_CODE_PATH_HOST: /tmp/app/
-  #   - name: Build the Docker image mariadb
-  #     run: docker run --detach --name mariadb --network=laravel_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
-  #   - name: Node and NPM version check
-  #     run:  |
-  #       docker exec nodejs-nodejs-1 node -v
-  #       docker exec nodejs-nodejs-1 npm -v
-  #   - name: API checking
-  #     run:  |
-  #       sleep 30s
-  #       curl -i http://localhost:3000/
-  #   - name: Destroy container and file
-  #     run:  |
-  #       docker-compose down
-  #       echo "y" | docker system prune -a
-  #       while [ -d /tmp/app ]; do
-  #       echo "password" | sudo -S whoami
-  #       sudo rm -rf /tmp/app/
-  #       done
-
-
-  # NODEJS-Node16-AMD64:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name : Folder check list
-  #     run:  |
-  #       while [ -d /tmp/app ]; do
-  #       echo "password" | sudo -S whoami
-  #       sudo rm -rf /tmp/app/
-  #       done
-  #   - name: Build the Docker image Nodejs 16
-  #     run: docker-compose -f "docker-compose.yml" up -d --build
-  #     env:
-  #       NODEJS_VERSION: 16
-  #       APP_CODE_PATH_HOST: /tmp/app/
-  #   - name: Build the Docker image mariadb
-  #     run: docker run --detach --name mariadb --network=laravel_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
-  #   - name: Node and NPM version check
-  #     run:  |
-  #       docker exec nodejs_nodejs_1 node -v
-  #       docker exec nodejs_nodejs_1 npm -v
-  #   - name: API checking
-  #     run:  |
-  #       sleep 30s
-  #       curl -i http://localhost:3000/
-  #   - name: Destroy container and file
-  #     run:  |
-  #       docker-compose down
-  #       sudo rm -rf /tmp/app/
-  #       echo "y" | docker image prune -a
-  # NODEJS-Node16-ARM64:
-  #   runs-on: self-hosted
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name : Folder check list
-  #     run:  |
-  #       while [ -d /tmp/app ]; do
-  #       echo "password" | sudo -S whoami
-  #       sudo rm -rf /tmp/app/
-  #       done
-  #   - name: Build the Docker image Nodejs 16
-  #     run: docker-compose -f "docker-compose.yml" up -d --build
-  #     env:
-  #       NODEJS_VERSION: 16
-  #       APP_CODE_PATH_HOST: /tmp/app/
-  #   - name: Build the Docker image mariadb
-  #     run: docker run --detach --name mariadb --network=laravel_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
-  #   - name: Node and NPM version check
-  #     run:  |
-  #       docker exec nodejs-nodejs-1 node -v
-  #       docker exec nodejs-nodejs-1 npm -v
-  #   - name: API checking
-  #     run:  |
-  #       sleep 30s
-  #       curl -i http://localhost:3000/
-  #   - name: Destroy Container 
-  #     run: |
-  #       docker-compose down
-  #       echo "y" | docker system prune -a
-  #       while [ -d /tmp/app ]; do
-  #       echo "password" | sudo -S whoami
-  #       sudo rm -rf /tmp/app/
-  #       done
