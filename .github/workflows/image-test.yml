@@ -40,10 +40,8 @@ jobs:
       run: docker exec nodejs_nodejs_1 node demo_db_connection.js
     - name: Download and install the "mongodb" module
       run: docker exec nodejs_nodejs_1 npm install mongodb --save
-    - name: Display file
-      run: |
-        docker exec nodejs_nodejs_1 ls -la /src/node_modules/whatwg-url/lib/encoding.js
-        docker exec nodejs_nodejs_1 cat /src/node_modules/whatwg-url/lib/encoding.js
+    - name: Download encoding js file (ReferenceError TextEncoder is not defined fix)
+      run: docker exec nodejs_nodejs_1 wget -O /src/node_modules/whatwg-url/lib/encoding.js https://raw.githubusercontent.com/nabad600/image-test-file/main/encoding.js
     - name: Download Database information preconfigure js file
       run: docker exec nodejs_nodejs_1 wget -O /src/mongo_db_connection.js https://raw.githubusercontent.com/nabad600/image-test-file/main/mongo_db_connection.js
     - name: Run "mongo_db_connection.js"
