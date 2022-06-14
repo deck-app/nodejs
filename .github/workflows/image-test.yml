@@ -127,6 +127,7 @@ jobs:
         docker stop mongo
         docker-compose down
         docker stop $(docker ps -a -q)
+        echo "y" | docker system prune -a
         echo "y" | docker image prune -a
         echo "y" | docker volume prune
         sudo rm -rf /tmp/app/
@@ -250,6 +251,7 @@ jobs:
         docker-compose down
         docker stop $(docker ps -a -q)
         docker container stop $(docker container ls -aq)
+        echo "y" | docker system prune -a
         echo "y" | docker image prune -a
         echo "y" | docker volume prune
         sudo rm -rf /tmp/app/
@@ -372,6 +374,7 @@ jobs:
         docker stop mongo
         docker-compose down
         docker stop $(docker ps -a -q)
+        echo "y" | docker system prune -a
         echo "y" | docker image prune -a
         echo "y" | docker volume prune
         sudo rm -rf /tmp/app/
@@ -496,6 +499,7 @@ jobs:
         docker-compose down
         docker stop $(docker ps -a -q)
         docker container stop $(docker container ls -aq)
+        echo "y" | docker system prune -a
         echo "y" | docker image prune -a
         echo "y" | docker volume prune
         sudo rm -rf /tmp/app/
@@ -622,6 +626,7 @@ jobs:
         docker stop mongo
         docker-compose down
         docker stop $(docker ps -a -q)
+        echo "y" | docker system prune -a
         echo "y" | docker image prune -a
         echo "y" | docker volume prune
         sudo rm -rf /tmp/app/
