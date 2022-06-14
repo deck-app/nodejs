@@ -70,6 +70,11 @@ jobs:
     - uses: actions/checkout@v2
     - name : Folder check list
       run:  |
+        docker container stop $(docker container ls -aq)
+        docker container rm $(docker container ls -aq)
+        docker stop $(docker ps -a -q)
+        echo "y" | docker image prune -a
+        echo "y" | docker volume prune
         while [ -d /tmp/app ]; do
         echo "password" | sudo -S whoami
         sudo rm -rf /tmp/app/
@@ -187,6 +192,11 @@ jobs:
     - uses: actions/checkout@v2
     - name : Folder check list
       run:  |
+        docker container stop $(docker container ls -aq)
+        docker container rm $(docker container ls -aq)
+        docker stop $(docker ps -a -q)
+        echo "y" | docker image prune -a
+        echo "y" | docker volume prune
         while [ -d /tmp/app ]; do
         echo "password" | sudo -S whoami
         sudo rm -rf /tmp/app/
@@ -305,6 +315,11 @@ jobs:
     - uses: actions/checkout@v2
     - name : Folder check list
       run:  |
+        docker container stop $(docker container ls -aq)
+        docker container rm $(docker container ls -aq)
+        docker stop $(docker ps -a -q)
+        echo "y" | docker image prune -a
+        echo "y" | docker volume prune
         while [ -d /tmp/app ]; do
         echo "password" | sudo -S whoami
         sudo rm -rf /tmp/app/
@@ -357,7 +372,6 @@ jobs:
         docker stop mongo
         docker-compose down
         docker stop $(docker ps -a -q)
-        docker container stop $(docker container ls -aq)
         echo "y" | docker image prune -a
         echo "y" | docker volume prune
         sudo rm -rf /tmp/app/
@@ -424,6 +438,11 @@ jobs:
     - uses: actions/checkout@v2
     - name : Folder check list
       run:  |
+        docker container stop $(docker container ls -aq)
+        docker container rm $(docker container ls -aq)
+        docker stop $(docker ps -a -q)
+        echo "y" | docker image prune -a
+        echo "y" | docker volume prune
         while [ -d /tmp/app ]; do
         echo "password" | sudo -S whoami
         sudo rm -rf /tmp/app/
@@ -544,6 +563,11 @@ jobs:
     - uses: actions/checkout@v2
     - name : Folder check list
       run:  |
+        docker container stop $(docker container ls -aq)
+        docker container rm $(docker container ls -aq)
+        docker stop $(docker ps -a -q)
+        echo "y" | docker image prune -a
+        echo "y" | docker volume prune
         while [ -d /tmp/app ]; do
         echo "password" | sudo -S whoami
         sudo rm -rf /tmp/app/
