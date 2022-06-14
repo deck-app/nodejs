@@ -79,7 +79,8 @@ jobs:
       env:
         NODEJS_VERSION: 10
         APP_CODE_PATH_HOST: /tmp/app/
-      run:  docker container stop $(docker container ls -aq)
+    - name: Check MySQL container 
+      run: docker container stop $(docker container ls -aq)
     - name: Build the Docker image mariadb
       run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
     - name: Build the Docker image Mongodb
@@ -197,6 +198,7 @@ jobs:
       env:
         NODEJS_VERSION: 12
         APP_CODE_PATH_HOST: /tmp/app/
+    - name: Check MySQL container 
       run:  docker container stop $(docker container ls -aq)
     - name: Build the Docker image mariadb
       run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
@@ -316,6 +318,7 @@ jobs:
       env:
         NODEJS_VERSION: 13
         APP_CODE_PATH_HOST: /tmp/app/
+    - name: Check MySQL container 
       run:  docker container stop $(docker container ls -aq)
     - name: Build the Docker image mariadb
       run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
@@ -436,6 +439,7 @@ jobs:
       env:
         NODEJS_VERSION: 14
         APP_CODE_PATH_HOST: /tmp/app/
+    - name: Check MySQL container 
       run:  docker container stop $(docker container ls -aq)
     - name: Build the Docker image mariadb
       run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
@@ -557,6 +561,7 @@ jobs:
       env:
         NODEJS_VERSION: 16
         APP_CODE_PATH_HOST: /tmp/app/
+    - name: Check MySQL container 
       run: docker container stop $(docker container ls -aq)
     - name: Build the Docker image mariadb
       run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
