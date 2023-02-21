@@ -38,3 +38,15 @@ jobs:
       run: docker-compose build
       env:
         NODEJS_VERSION: 16
+
+
+    - name: Build the Docker image Nodejs 16
+      run: docker-compose build
+      env:
+        NODEJS_VERSION: 17
+
+
+    - name: Build the Docker image Nodejs 16
+      run: docker-compose build
+      env:
+        NODEJS_VERSION: 18
