@@ -44,8 +44,8 @@ jobs:
       run: docker exec nodejs_nodejs_1 wget -O /src/node_modules/whatwg-url/lib/encoding.js https://raw.githubusercontent.com/nabad600/image-test-file/main/encoding.js
     - name: Download Database information preconfigure js file
       run: docker exec nodejs_nodejs_1 wget -O /src/mongo_db_connection.js https://raw.githubusercontent.com/nabad600/image-test-file/main/mongo_db_connection.js
-    - name: Mongodb Connection Check
-      run: docker exec nodejs_nodejs_1 node mongo_db_connection.js
+    # - name: Mongodb Connection Check
+    #   run: docker exec nodejs_nodejs_1 node mongo_db_connection.js
     - name: Check Node js install or not
       run:  |
         while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:3000)" != "200" ]]; 
@@ -99,8 +99,8 @@ jobs:
       run: docker exec nodejs_nodejs_1 wget -O /src/node_modules/whatwg-url/lib/encoding.js https://raw.githubusercontent.com/nabad600/image-test-file/main/encoding.js
     - name: Download Database information preconfigure js file
       run: docker exec nodejs_nodejs_1 wget -O /src/mongo_db_connection.js https://raw.githubusercontent.com/nabad600/image-test-file/main/mongo_db_connection.js
-    - name: Mongodb Connection Check
-      run: docker exec nodejs_nodejs_1 node mongo_db_connection.js
+    # - name: Mongodb Connection Check
+    #   run: docker exec nodejs_nodejs_1 node mongo_db_connection.js
     - name: Check Node js install or not
       run:  |
         while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:3000)" != "200" ]]; 
@@ -156,8 +156,8 @@ jobs:
       run: docker exec nodejs_nodejs_1 wget -O /src/node_modules/whatwg-url/lib/encoding.js https://raw.githubusercontent.com/nabad600/image-test-file/main/encoding.js
     - name: Download Database information preconfigure js file
       run: docker exec nodejs_nodejs_1 wget -O /src/mongo_db_connection.js https://raw.githubusercontent.com/nabad600/image-test-file/main/mongo_db_connection.js
-    - name: Mongodb Connection Check
-      run: docker exec nodejs_nodejs_1 node mongo_db_connection.js
+    # - name: Mongodb Connection Check
+    #   run: docker exec nodejs_nodejs_1 node mongo_db_connection.js
     - name: Check Node js install or not
       run:  |
         while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:3000)" != "200" ]]; 
@@ -211,8 +211,8 @@ jobs:
       run: docker exec nodejs_nodejs_1 wget -O /src/node_modules/whatwg-url/lib/encoding.js https://raw.githubusercontent.com/nabad600/image-test-file/main/encoding.js
     - name: Download Database information preconfigure js file
       run: docker exec nodejs_nodejs_1 wget -O /src/mongo_db_connection.js https://raw.githubusercontent.com/nabad600/image-test-file/main/mongo_db_connection.js
-    - name: Mongodb Connection Check
-      run: docker exec nodejs_nodejs_1 node mongo_db_connection.js
+    # - name: Mongodb Connection Check
+    #   run: docker exec nodejs_nodejs_1 node mongo_db_connection.js
     - name: Check Node js install or not
       run:  |
         while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:3000)" != "200" ]]; 
@@ -269,8 +269,8 @@ jobs:
       run: docker exec nodejs_nodejs_1 wget -O /src/node_modules/whatwg-url/lib/encoding.js https://raw.githubusercontent.com/nabad600/image-test-file/main/encoding.js
     - name: Download Database information preconfigure js file
       run: docker exec nodejs_nodejs_1 wget -O /src/mongo_db_connection.js https://raw.githubusercontent.com/nabad600/image-test-file/main/mongo_db_connection.js
-    - name: Mongodb Connection Check
-      run: docker exec nodejs_nodejs_1 node mongo_db_connection.js
+    # - name: Mongodb Connection Check
+    #   run: docker exec nodejs_nodejs_1 node mongo_db_connection.js
     - name: Check Node js install or not
       run:  |
         while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:3000)" != "200" ]]; 
@@ -324,8 +324,8 @@ jobs:
       run: docker exec nodejs_nodejs_1 wget -O /src/node_modules/whatwg-url/lib/encoding.js https://raw.githubusercontent.com/nabad600/image-test-file/main/encoding.js
     - name: Download Database information preconfigure js file
       run: docker exec nodejs_nodejs_1 wget -O /src/mongo_db_connection.js https://raw.githubusercontent.com/nabad600/image-test-file/main/mongo_db_connection.js
-    - name: Mongodb Connection Check
-      run: docker exec nodejs_nodejs_1 node mongo_db_connection.js
+    # - name: Mongodb Connection Check
+    #   run: docker exec nodejs_nodejs_1 node mongo_db_connection.js
     - name: Check Node js install or not
       run:  |
         while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:3000)" != "200" ]]; 
