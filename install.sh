@@ -16,12 +16,12 @@ then
 fi
 if [[ "$(ls -A "/src/")" ]] ;
     then
-        echo "Directory is not Empty"
+        echo "Directory is not Empty, Please deleted hiden file and directory"
     else
         cd /src/
         tar cf - --one-file-system -C /distribution . | tar xf -
         npm install -g nodemon && npm install
-        # sudo rm -rf /distribution
+        rm -rf /distribution
 fi
 chown -R node:node /src
 exec "$@"
