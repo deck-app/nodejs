@@ -8,13 +8,11 @@ user:
     type:
       select
     values:
-      - "10"
-      - "12"
-      - "13"
       - "14"
       - "16"
       - "17"
       - "18"
+      - "19"
     target:
       NODEJS_VERSION
 

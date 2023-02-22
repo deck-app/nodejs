@@ -50,3 +50,9 @@ jobs:
       run: docker-compose build
       env:
         NODEJS_VERSION: 18
+
+
+    - name: Build the Docker image Nodejs 19
+      run: docker-compose build
+      env:
+        NODEJS_VERSION: 19
