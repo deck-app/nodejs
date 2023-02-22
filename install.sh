@@ -1,7 +1,7 @@
 #!/bin/bash
 set +x
 cd /src/
-echo "Application install......"
+echo "Application installation starts......"
 if [[ -f "/src/package.json" ]] ;
 then
     if [[ -d "/src/node_modules" ]] ;
@@ -25,5 +25,5 @@ if [[ "$(ls -A "/src/")" ]] ;
         rm -rf /distribution
 fi
 chown -R node:node /src 2> /dev/null
-echo "Application install successfully"
+echo "Application installation done successfully"
 exec "$@"
