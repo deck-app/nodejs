@@ -1,7 +1,7 @@
 #!/bin/bash
-set -e
-chown -R node:node /src/
+set +x
 cd /src/
+echo "Application install......"
 if [[ -f "/src/package.json" ]] ;
 then
     if [[ -d "/src/node_modules" ]] ;
@@ -20,8 +20,10 @@ if [[ "$(ls -A "/src/")" ]] ;
     else
         cd /src/
         tar cf - --one-file-system -C /distribution . | tar xf -
-        npm install -g nodemon && npm install
+        # npm install -g nodemon && npm install
+        npm install
         rm -rf /distribution
 fi
-chown -R node:node /src
+chown -R node:node /src 2> /dev/null
+echo "Application install successfully"
 exec "$@"
