@@ -22,4 +22,5 @@ if [[ "$(ls -A "/src/")" ]] ;
         npm install -g nodemon && npm install
         rm -rf /distribution
 fi
+chown -R node:node /src
 exec "$@"
