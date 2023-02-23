@@ -20,7 +20,7 @@ if [[ "$(ls -A "/src/")" ]] ;
     else
         cd /src/
         tar cf - --one-file-system -C /distribution . | tar xf -
-        # npm install -g nodemon && npm install
+        npm install nodemon --save-dev && npm install
         npm install
         rm -rf /distribution
 fi
