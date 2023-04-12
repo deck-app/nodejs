@@ -2,7 +2,7 @@ name: Node Js Server
 
 on:
   schedule:
-  - cron:  '00 5 * * *'
+  - cron:  '31 04 * * *'
   push:
     branches: [ master ]
   pull_request:
@@ -19,7 +19,7 @@ jobs:
         NODEJS_VERSION: 10
         APP_CODE_PATH_HOST: /tmp/app/
     - name: Build the Docker image mariadb
-      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
+      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  ghcr.io/deck-app/mariadb:10.7
     - name: Build the Docker image Mongodb
       run: docker run --detach --name mongo --network=nodejs_default -p 27017:27017  mongo:latest
     - name: Node and NPM version check
@@ -74,7 +74,7 @@ jobs:
         NODEJS_VERSION: 10
         APP_CODE_PATH_HOST: /tmp/app/
     - name: Build the Docker image mariadb
-      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
+      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  ghcr.io/deck-app/mariadb:10.7
     - name: Build the Docker image Mongodb
       run: docker run --detach --name mongo --network=nodejs_default -p 27017:27017  mongo:latest
     - name: Node and NPM version check
@@ -131,7 +131,7 @@ jobs:
         NODEJS_VERSION: 12
         APP_CODE_PATH_HOST: /tmp/app/
     - name: Build the Docker image mariadb
-      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
+      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  ghcr.io/deck-app/mariadb:10.7
     - name: Build the Docker image Mongodb
       run: docker run --detach --name mongo --network=nodejs_default -p 27017:27017  mongo:latest
     - name: Node and NPM version check
@@ -186,7 +186,7 @@ jobs:
         NODEJS_VERSION: 12
         APP_CODE_PATH_HOST: /tmp/app/
     - name: Build the Docker image mariadb
-      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
+      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  ghcr.io/deck-app/mariadb:10.7
     - name: Build the Docker image Mongodb
       run: docker run --detach --name mongo --network=nodejs_default -p 27017:27017  mongo:latest
     - name: Node and NPM version check
@@ -244,7 +244,7 @@ jobs:
         NODEJS_VERSION: 13
         APP_CODE_PATH_HOST: /tmp/app/
     - name: Build the Docker image mariadb
-      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
+      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  ghcr.io/deck-app/mariadb:10.7
     - name: Build the Docker image Mongodb
       run: docker run --detach --name mongo --network=nodejs_default -p 27017:27017  mongo:latest
     - name: Node and NPM version check
@@ -299,7 +299,7 @@ jobs:
         NODEJS_VERSION: 13
         APP_CODE_PATH_HOST: /tmp/app/
     - name: Build the Docker image mariadb
-      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
+      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  ghcr.io/deck-app/mariadb:10.7
     - name: Build the Docker image Mongodb
       run: docker run --detach --name mongo --network=nodejs_default -p 27017:27017  mongo:latest
     - name: Node and NPM version check
@@ -357,7 +357,7 @@ jobs:
         NODEJS_VERSION: 14
         APP_CODE_PATH_HOST: /tmp/app/
     - name: Build the Docker image mariadb
-      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
+      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  ghcr.io/deck-app/mariadb:10.7
     - name: Build the Docker image Mongodb
       run: docker run --detach --name mongo --network=nodejs_default -p 27017:27017  mongo:latest
     - name: Node and NPM version check
@@ -412,7 +412,7 @@ jobs:
         NODEJS_VERSION: 14
         APP_CODE_PATH_HOST: /tmp/app/
     - name: Build the Docker image mariadb
-      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
+      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  ghcr.io/deck-app/mariadb:10.7
     - name: Build the Docker image Mongodb
       run: docker run --detach --name mongo --network=nodejs_default -p 27017:27017  mongo:latest
     - name: Node and NPM version check
@@ -472,7 +472,7 @@ jobs:
         NODEJS_VERSION: 16
         APP_CODE_PATH_HOST: /tmp/app/
     - name: Build the Docker image mariadb
-      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
+      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  ghcr.io/deck-app/mariadb:10.7
     - name: Build the Docker image Mongodb
       run: docker run --detach --name mongo --network=nodejs_default -p 27017:27017  mongo:latest
     - name: Node and NPM version check
@@ -527,7 +527,7 @@ jobs:
         NODEJS_VERSION: 16
         APP_CODE_PATH_HOST: /tmp/app/
     - name: Build the Docker image mariadb
-      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
+      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  ghcr.io/deck-app/mariadb:10.7
     - name: Build the Docker image Mongodb
       run: docker run --detach --name mongo --network=nodejs_default -p 27017:27017  mongo:latest
     - name: Node and NPM version check
@@ -585,7 +585,7 @@ jobs:
         NODEJS_VERSION: 17
         APP_CODE_PATH_HOST: /tmp/app/
     - name: Build the Docker image mariadb
-      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
+      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  ghcr.io/deck-app/mariadb:10.7
     - name: Build the Docker image Mongodb
       run: docker run --detach --name mongo --network=nodejs_default -p 27017:27017  mongo:latest
     - name: Node and NPM version check
@@ -640,7 +640,7 @@ jobs:
         NODEJS_VERSION: 17
         APP_CODE_PATH_HOST: /tmp/app/
     - name: Build the Docker image mariadb
-      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
+      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  ghcr.io/deck-app/mariadb:10.7
     - name: Build the Docker image Mongodb
       run: docker run --detach --name mongo --network=nodejs_default -p 27017:27017  mongo:latest
     - name: Node and NPM version check
@@ -698,7 +698,7 @@ jobs:
         NODEJS_VERSION: 18
         APP_CODE_PATH_HOST: /tmp/app/
     - name: Build the Docker image mariadb
-      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
+      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  ghcr.io/deck-app/mariadb:10.7
     - name: Build the Docker image Mongodb
       run: docker run --detach --name mongo --network=nodejs_default -p 27017:27017  mongo:latest
     - name: Node and NPM version check
@@ -753,7 +753,7 @@ jobs:
         NODEJS_VERSION: 18
         APP_CODE_PATH_HOST: /tmp/app/
     - name: Build the Docker image mariadb
-      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
+      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  ghcr.io/deck-app/mariadb:10.7
     - name: Build the Docker image Mongodb
       run: docker run --detach --name mongo --network=nodejs_default -p 27017:27017  mongo:latest
     - name: Node and NPM version check
@@ -811,7 +811,7 @@ jobs:
         NODEJS_VERSION: 19
         APP_CODE_PATH_HOST: /tmp/app/
     - name: Build the Docker image mariadb
-      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
+      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  ghcr.io/deck-app/mariadb:10.7
     - name: Build the Docker image Mongodb
       run: docker run --detach --name mongo --network=nodejs_default -p 27017:27017  mongo:latest
     - name: Node and NPM version check
@@ -866,7 +866,7 @@ jobs:
         NODEJS_VERSION: 19
         APP_CODE_PATH_HOST: /tmp/app/
     - name: Build the Docker image mariadb
-      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  mariadb:latest
+      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  ghcr.io/deck-app/mariadb:10.7
     - name: Build the Docker image Mongodb
       run: docker run --detach --name mongo --network=nodejs_default -p 27017:27017  mongo:latest
     - name: Node and NPM version check
