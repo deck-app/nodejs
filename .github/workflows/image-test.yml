@@ -66,7 +66,7 @@ jobs:
         docker stop mongo
         docker-compose down
         docker stop $(docker ps -a -q)
-        echo "y" | docker image prune -a
+        echo "y" | docker system prune -a
         echo "y" | docker volume prune
         sudo rm -rf /tmp/app/
     - name: Slack Notification
@@ -190,7 +190,7 @@ jobs:
         docker stop mongo
         docker-compose down
         docker stop $(docker ps -a -q)
-        echo "y" | docker image prune -a
+        echo "y" | docker system prune -a
         echo "y" | docker volume prune
         sudo rm -rf /tmp/app/
     - name: Slack Notification
@@ -315,7 +315,7 @@ jobs:
         docker stop mongo
         docker-compose down
         docker stop $(docker ps -a -q)
-        echo "y" | docker image prune -a
+        echo "y" | docker system prune -a
         echo "y" | docker volume prune
         sudo rm -rf /tmp/app/
     - name: Slack Notification
@@ -440,7 +440,7 @@ jobs:
         docker stop mongo
         docker-compose down
         docker stop $(docker ps -a -q)
-        echo "y" | docker image prune -a
+        echo "y" | docker system prune -a
         echo "y" | docker volume prune
         sudo rm -rf /tmp/app/
     - name: Slack Notification
@@ -567,7 +567,7 @@ jobs:
         docker stop mongo
         docker-compose down
         docker stop $(docker ps -a -q)
-        echo "y" | docker image prune -a
+        echo "y" | docker system prune -a
         echo "y" | docker volume prune
         sudo rm -rf /tmp/app/
     - name: Slack Notification
@@ -692,7 +692,7 @@ jobs:
         docker stop mongo
         docker-compose down
         docker stop $(docker ps -a -q)
-        echo "y" | docker image prune -a
+        echo "y" | docker system prune -a
         echo "y" | docker volume prune
         sudo rm -rf /tmp/app/
     - name: Slack Notification
@@ -817,7 +817,7 @@ jobs:
         docker stop mongo
         docker-compose down
         docker stop $(docker ps -a -q)
-        echo "y" | docker image prune -a
+        echo "y" | docker system prune -a
         echo "y" | docker volume prune
         sudo rm -rf /tmp/app/
     - name: Slack Notification
@@ -942,7 +942,7 @@ jobs:
         docker stop mongo
         docker-compose down
         docker stop $(docker ps -a -q)
-        echo "y" | docker image prune -a
+        echo "y" | docker system prune -a
         echo "y" | docker volume prune
         sudo rm -rf /tmp/app/
     - name: Slack Notification
