@@ -1,0 +1,163 @@
+name: NodeJS 
+
+on:
+  schedule:
+  - cron:  '30 23 * * *'
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  NodeJS-AMD64:
+    strategy:
+      matrix:
+        nv: [10, 12, 13, 14, 16, 17, 18, 19]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image Nodejs ${{ matrix.os }}
+      run: docker-compose -f "docker-compose.yml" up -d --build
+      env:
+        NODEJS_VERSION: ${{ matrix.os }}
+        APP_CODE_PATH_HOST: /tmp/app/
+    - name: Build the Docker image mariadb
+      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  ghcr.io/deck-app/mariadb:10.7
+    - name: Build the Docker image Mongodb
+      run: docker run --detach --name mongo --network=nodejs_default -p 27017:27017  mongo:latest
+    - name: Node and NPM version check
+      run:  |
+        docker exec nodejs_nodejs_1 node -v
+        docker exec nodejs_nodejs_1 npm -v
+    - name: Download and install the "mysql" module
+      run: docker exec nodejs_nodejs_1 npm install mysql
+    - name: Download Database information preconfigure js file
+      run: docker exec nodejs_nodejs_1 wget -O /src/demo_db_connection.js https://raw.githubusercontent.com/nabad600/image-test-file/main/demo_db_connection.js
+    - name: Verify MariaDB running from host, create Database and show Database
+      run: |
+        while ! docker exec mariadb mysqladmin --user=root --password=password --host "mariadb" ping --silent &> /dev/null ; do
+            echo "Waiting for database connection..."
+            sleep 2
+        done
+    - name: Maridb conncection check
+      run: docker exec nodejs_nodejs_1 node demo_db_connection.js
+    - name: Download and install the "mongodb" module
+      run: docker exec nodejs_nodejs_1 npm install mongodb --save
+    - name: Download encoding js file (ReferenceError TextEncoder is not defined fix)
+      run: docker exec nodejs_nodejs_1 wget -O /src/node_modules/whatwg-url/lib/encoding.js https://raw.githubusercontent.com/nabad600/image-test-file/main/encoding.js
+    - name: Download Database information preconfigure js file
+      run: docker exec nodejs_nodejs_1 wget -O /src/mongo_db_connection.js https://raw.githubusercontent.com/nabad600/image-test-file/main/mongo_db_connection.js
+    - name: Mongodb Connection Check
+      run: docker exec nodejs_nodejs_1 node mongo_db_connection.js
+    - name: Check Node js install or not
+      run:  |
+        while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:3000)" != "200" ]]; 
+        do 
+          sleep 10s
+        done
+    - name: Web site checking
+      run:  |
+        curl -i http://localhost:3000/ 
+    - name: Destroy container and file
+      run:  |
+        docker stop mariadb
+        docker stop mongo
+        docker-compose down
+        docker stop $(docker ps -a -q)
+        echo "y" | docker system prune -a
+        echo "y" | docker volume prune
+        sudo rm -rf /tmp/app/
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_CHANNEL: github_action_status
+        SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
+        SLACK_ICON: https://github.com/rtCamp.png?size=48
+        SLACK_MESSAGE: 'Post Content NodeJS ${{ matrix.os }} AMD64 :rocket:'
+        SLACK_TITLE: Post Title
+        SLACK_USERNAME: rtCamp
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+  NodeJS-ARM64:
+    strategy:
+      matrix:
+        nv: [10, 12, 13, 14, 16, 17, 18, 19]
+    runs-on: ubuntu-22.04
+    name: NodeJS-ARM64
+    steps:
+    - uses: actions/checkout@v4
+    - uses: uraimo/run-on-arch-action@v2
+      name: Run commands
+      id: runcmd
+      with:
+        arch: aarch64
+        distro: ubuntu22.04
+        run: |
+          uname -a
+          echo ::set-output name=uname::$(uname -a)
+    - name: Get the output
+      run: |
+        echo "The uname output was ${{ steps.runcmd.outputs.uname }}"
+    - name: Build the Docker image Nodejs ${{ matrix.os }}
+      run: docker-compose -f "docker-compose.yml" up -d --build
+      env:
+        NODEJS_VERSION: ${{ matrix.os }}
+        APP_CODE_PATH_HOST: /tmp/app/
+    - name: Build the Docker image mariadb
+      run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  ghcr.io/deck-app/mariadb:10.7
+    - name: Build the Docker image Mongodb
+      run: docker run --detach --name mongo --network=nodejs_default -p 27017:27017  mongo:latest
+    - name: Node and NPM version check
+      run:  |
+        docker exec nodejs_nodejs_1 node -v
+        docker exec nodejs_nodejs_1 npm -v
+    - name: Download and install the "mysql" module
+      run: docker exec nodejs_nodejs_1 npm install mysql
+    - name: Download Database information preconfigure js file
+      run: docker exec nodejs_nodejs_1 wget -O /src/demo_db_connection.js https://raw.githubusercontent.com/nabad600/image-test-file/main/demo_db_connection.js
+    - name: Verify MariaDB running from host, create Database and show Database
+      run: |
+        while ! docker exec mariadb mysqladmin --user=root --password=password --host "mariadb" ping --silent &> /dev/null ; do
+            echo "Waiting for database connection..."
+            sleep 2
+        done
+    - name: Maridb conncection check
+      run: docker exec nodejs_nodejs_1 node demo_db_connection.js
+    - name: Download and install the "mongodb" module
+      run: docker exec nodejs_nodejs_1 npm install mongodb --save
+    - name: Download encoding js file (ReferenceError TextEncoder is not defined fix)
+      run: docker exec nodejs_nodejs_1 wget -O /src/node_modules/whatwg-url/lib/encoding.js https://raw.githubusercontent.com/nabad600/image-test-file/main/encoding.js
+    - name: Download Database information preconfigure js file
+      run: docker exec nodejs_nodejs_1 wget -O /src/mongo_db_connection.js https://raw.githubusercontent.com/nabad600/image-test-file/main/mongo_db_connection.js
+    - name: Mongodb Connection Check
+      run: docker exec nodejs_nodejs_1 node mongo_db_connection.js
+    - name: Check Node js install or not
+      run:  |
+        while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:3000)" != "200" ]]; 
+        do 
+          sleep 10s
+        done
+    - name: Web site checking
+      run:  |
+        curl -i http://localhost:3000/ 
+    - name: Destroy container and file
+      run:  |
+        docker stop mariadb
+        docker stop mongo
+        docker-compose down
+        docker stop $(docker ps -a -q)
+        echo "y" | docker system prune -a
+        echo "y" | docker volume prune
+        sudo rm -rf /tmp/app/
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_CHANNEL: github_action_status
+        SLACK_COLOR: ${{ job.status }}
+        SLACK_ICON: https://github.com/rtCamp.png?size=48
+        SLACK_MESSAGE: 'Post Content NodeJS ${{ matrix.os }} ARM64 :rocket:'
+        SLACK_TITLE: Post Title
+        SLACK_USERNAME: rtCamp
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+  
