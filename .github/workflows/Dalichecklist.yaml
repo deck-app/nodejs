@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image Nodejs ${{ matrix.os }}
+    - name: Build the Docker image Nodejs ${{ matrix.nv }}
       run: docker-compose -f "docker-compose.yml" up -d --build
       env:
-        NODEJS_VERSION: ${{ matrix.os }}
+        NODEJS_VERSION: ${{ matrix.nv }}
         APP_CODE_PATH_HOST: /tmp/app/
     - name: Build the Docker image mariadb
       run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  ghcr.io/deck-app/mariadb:10.7
@@ -73,7 +73,7 @@ jobs:
         SLACK_CHANNEL: github_action_status
         SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
         SLACK_ICON: https://github.com/rtCamp.png?size=48
-        SLACK_MESSAGE: 'Post Content NodeJS ${{ matrix.os }} AMD64 :rocket:'
+        SLACK_MESSAGE: 'Post Content NodeJS ${{ matrix.nv }} AMD64 :rocket:'
         SLACK_TITLE: Post Title
         SLACK_USERNAME: rtCamp
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -98,10 +98,10 @@ jobs:
     - name: Get the output
       run: |
         echo "The uname output was ${{ steps.runcmd.outputs.uname }}"
-    - name: Build the Docker image Nodejs ${{ matrix.os }}
+    - name: Build the Docker image Nodejs ${{ matrix.nv }}
       run: docker-compose -f "docker-compose.yml" up -d --build
       env:
-        NODEJS_VERSION: ${{ matrix.os }}
+        NODEJS_VERSION: ${{ matrix.nv }}
         APP_CODE_PATH_HOST: /tmp/app/
     - name: Build the Docker image mariadb
       run: docker run --detach --name mariadb --network=nodejs_default -p 3306:3306 --env MARIADB_DATABASE=test --env MARIADB_USER=test --env MARIADB_PASSWORD=test --env MARIADB_ROOT_PASSWORD=password  ghcr.io/deck-app/mariadb:10.7
@@ -155,7 +155,7 @@ jobs:
         SLACK_CHANNEL: github_action_status
         SLACK_COLOR: ${{ job.status }}
         SLACK_ICON: https://github.com/rtCamp.png?size=48
-        SLACK_MESSAGE: 'Post Content NodeJS ${{ matrix.os }} ARM64 :rocket:'
+        SLACK_MESSAGE: 'Post Content NodeJS ${{ matrix.nv }} ARM64 :rocket:'
         SLACK_TITLE: Post Title
         SLACK_USERNAME: rtCamp
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
